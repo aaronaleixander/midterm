@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          rel="stylesheet" >
+    <title>Midterm Survey</title>
+</head>
+<body>
+    <form action="summary" method="post">
+        <h1>Midterm Survey</h1>
+        <label for="name">
+            Name
+            <input type="text" name="name" id="name">
+        </label>
+        <br><br>
+        <p>Check all that apply:</p><br>
+        <repeat group="{{@options}}" value="{{@option}}">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="options[]" value="{{@option}}">
+                <label class="form-check-label">
+                    {{ucfirst(@option)}}
+                </label>
+            </div>
+        </repeat>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
