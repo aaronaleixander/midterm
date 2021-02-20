@@ -25,5 +25,14 @@ $f3->route('GET /survey', function ($f3) {
     echo $view->render('/views/survey.html');
 });
 
+// SUMMARY ROUTE
+$f3->route('POST /summary', function ($f3) {
+    // fat free - taking the view page and rendering it in the browser
+    //var_dump($_POST);
+    $f3->set('ops', implode(', ', $_POST['options']));
+    $view = new Template();
+    echo $view->render('/views/summary.html');
+});
+
 // Run fat free
 $f3->run();
